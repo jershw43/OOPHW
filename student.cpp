@@ -7,7 +7,7 @@ using namespace std;
 //Student type in the scope of the student constructor
 Student::Student()
 {
-    fname = 
+    fname = cin >> fname;
 }
 
 
@@ -41,7 +41,11 @@ void Fraction::setden(const int value)
 
 
 // CONSTANT MEMBER FUNCTIONS
-char Fraction::getsign(void) const
+    char Student::getfname (void);
+    {
+        return fname;
+    }
+
 {
   return sign;
 }
@@ -64,21 +68,3 @@ int Fraction::getden(void) const
   return den;
 }
 
-
-void Fraction::display(void) const
-{
-  if(whole == 0 && num == 0)
-    cout << 0;
-  else
-  {
-    if(sign == '-')
-      cout << "-";
-
-    if(num == 0)
-      cout << whole;
-    else if(whole == 0)
-      cout << num << "/" << den;
-    else
-      cout << whole << " " << num << "/" << den;
-  }
-}

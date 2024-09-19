@@ -64,10 +64,10 @@ class Fraction
 
     // CONSTANT MEMBER FUNCTIONS
     char getfname (void);
-    char getlname (void) const;
-    int getstuID (void) const;
-    int getGPA (void) const;
-    void display (void) const;
+    char getlname (void);
+    int getstuID (void);
+    int getGPA (void);
+    void display (void) ;
 
   private:
     char sign;
