@@ -1,5 +1,7 @@
 #include <iostream>
 #include "student.h"
+#include <string>
+#include <cstring>
 
 using namespace std;
 
@@ -7,64 +9,76 @@ using namespace std;
 //Student type in the scope of the student constructor
 Student::Student()
 {
-    fname = cin >> fname;
+    strcpy(firstName, "");
+    strcpy(lastName, "");
+    stuID = 0;
+    GPA = 0.0;
 }
 
 
 // MODIFICATION MEMBER FUNCTIONS
-void Fraction::setsign(const char value)
+void Student::setFirstName(const char fName[])
 {
-  if(value == '+' || value == '-')
-    sign = value;
+    if(strlen(fName) <= 15)
+    {
+        strcpy(firstName, fName);
+    }
 }
 
 
-void Fraction::setwhole(const int value)
+void Student::setLastName(const char lName[])
 {
-  if(value >= 0)
-    whole = value;
+  if(strlen(lName) <= 20)
+  {
+    strcpy(lastName, lName);
+  }
 }
 
 
-void Fraction::setnum(const int value)
+void Student::setID(const int ID)
 {
-  if(value >= 0)
-    num = value;
+  if(ID >= 0 && ID <= 20000)
+  {
+    stuID = ID;
+  }
 }
 
 
-void Fraction::setden(const int value)
+void Student::setGPA(const float gpaVal)
 {
-  if(value > 0)
-    den = value;
+  if(gpaVal >= 0.0 && gpaVal <= 4.0)
+  {
+    GPA = gpaVal;
+  }
 }
 
 
 // CONSTANT MEMBER FUNCTIONS
-    char Student::getfname (void);
-    {
-        return fname;
-    }
-
+const char* Student::getFirstName() const
 {
-  return sign;
+  return firstName;
 }
 
 
-int Fraction::getwhole(void) const
+const char* Student::getLastName() const
 {
-  return whole;
+  return lastName;
 }
 
 
-int Fraction::getnum(void) const
+int Student::getID(void) const
 {
-  return num;
+  return stuID;
 }
 
 
-int Fraction::getden(void) const
+float Student::getGPA(void) const
 {
-  return den;
+  return GPA;
 }
 
+
+void Student::display(void) const
+{
+  cout << "ID number:" << stuID << " | Name: " << firstName << "  " << lastName << " | GPA: " << GPA << endl;
+}
