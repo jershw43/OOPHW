@@ -80,7 +80,7 @@ void createStudent(Student students[], int &currentStudentCount)
   while (!valid)
   {
       cout << "Enter first name: " << endl;
-      //clear input stream
+      //Clear input stream
       cin.ignore();
 
       cin >> firstName;
@@ -106,6 +106,8 @@ void createStudent(Student students[], int &currentStudentCount)
   while (!valid)
   {
       cout << "Enter last name: " << endl;
+      //Clears input stream
+      cin.ignore();
       cin >> lastName;
     
       if (strlen(lastName) > 20)
@@ -129,7 +131,9 @@ void createStudent(Student students[], int &currentStudentCount)
   // ID error check
   while (!valid)
   {
+        
       cout << "Enter student ID number: ";
+      //Good input check
       while(!(cin >> stuID) || cin.peek() != '\n')
    {
      cout << "Please enter a number: ";
@@ -157,6 +161,7 @@ void createStudent(Student students[], int &currentStudentCount)
   while (!valid)
   {
       cout << "Enter student's GPA: ";
+//Good input check
       while(!(cin >> GPA) || cin.peek() != '\n')
    {
      cout << "Please enter a number: ";
@@ -195,7 +200,7 @@ void deleteStudent(Student students[], int &currentStudentCount)
   int ID;
   cout << "Enter the ID of the student to delete: ";
   cin >> ID;
-
+//Student deletion function
   int index = findStudentByID(students, currentStudentCount, ID);
 
   if (index != -1) 
